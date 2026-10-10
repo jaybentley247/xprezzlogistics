@@ -477,8 +477,6 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }) {
 }
 
 const heroSlides = [
-  "https://www.image2url.com/r2/default/images/1778842795997-de40ff34-473a-4550-a237-519edd41bad2.jpg",
-  "https://www.image2url.com/r2/default/images/1778879477498-bf78dcb1-bcea-47d0-9c6c-481ef77dafae.png",
   "https://www.image2url.com/r2/default/images/1778878619283-b2bf87a4-2eb4-46d1-bfa2-89d211257a09.jpg",
 ];
 
