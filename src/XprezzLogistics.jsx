@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 
 const styles = `
@@ -75,7 +75,12 @@ const styles = `
   .ss-hero-text {
     position: relative;
     z-index: 2;
-    max-width: 560px;
+    width: 100%;
+    max-width: 640px;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .ss-hero-eyebrow {
@@ -118,6 +123,57 @@ const styles = `
 
   .ss-hero-btn:hover { background: #1D4ED8; }
   .ss-hero-btn:active { transform: scale(0.97); }
+
+  .ss-hero-track {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 640px;
+    margin-bottom: 26px;
+    padding: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .ss-hero-track:focus-within {
+    border-color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .ss-hero-track input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: inherit;
+  }
+
+  .ss-hero-track input::placeholder { color: rgba(255,255,255,0.75); }
+
+  .ss-hero-track button {
+    flex-shrink: 0;
+    padding: 13px 30px;
+    background: #ff6b3c;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+
+  .ss-hero-track button:hover { background: #1D4ED8; }
+  .ss-hero-track button:active { transform: scale(0.97); }
 
   .ss-hero-text h1 span {
     color: #ff6b00;
@@ -432,6 +488,8 @@ const styles = `
   @media (max-width: 480px) {
     .ss-hero-text h1 { font-size: 1.8rem; }
     .ss-hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.12em; }
+    .ss-hero-track input { padding: 9px 12px; font-size: 0.95rem; }
+    .ss-hero-track button { padding: 10px 18px; }
     .ss-section-intro h2 { font-size: 1.6rem; }
     .ss-feature-content h3 { font-size: 1.4rem; }
     .ss-global-content h2 { font-size: 1.8rem; }
@@ -594,6 +652,30 @@ const testimonials = [
   },
 ];
 
+function HeroTrack() {
+  const [trackingId, setTrackingId] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const key = trackingId.trim().toUpperCase();
+    if (key) navigate(`/shipment/${encodeURIComponent(key)}`);
+  };
+
+  return (
+    <form className="ss-hero-track" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Enter tracking number"
+        aria-label="Tracking number"
+        value={trackingId}
+        onChange={(e) => setTrackingId(e.target.value)}
+      />
+      <button type="submit">Track</button>
+    </form>
+  );
+}
+
 export default function XprezzLogistics() {
   return (
     <>
@@ -603,15 +685,7 @@ export default function XprezzLogistics() {
         <section className="ss-hero">
           <HeroSlider />
           <div className="ss-hero-text">
-            <div className="ss-hero-eyebrow">Xprezz Logistics</div>
-            <h1>
-              Flexible and Cost Efficient
-              <br />
-              <span>Logistics for your business</span>
-            </h1>
-            <p>
-              Our personal and professional approach to shipping provides you with a customizable service through our worldwide network.
-            </p>
+            <HeroTrack />
             <Link to="/quote" className="ss-hero-btn" style={{ textDecoration: "none", display: "inline-block" }}>
               Request a Quote
             </Link>
