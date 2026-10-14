@@ -277,10 +277,6 @@ export default function Footer() {
                 </span>
               </div>
               <div className="ss-footer-contact-item">
-                <span className="ss-footer-contact-icon">📞</span>
-                <span>+1 (646) 204-4191</span>
-              </div>
-              <div className="ss-footer-contact-item">
                 <span className="ss-footer-contact-icon">✉️</span>
                 <span>info@xprezzlogistics.com</span>
               </div>

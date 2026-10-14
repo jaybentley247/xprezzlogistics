@@ -436,27 +436,6 @@ const handleSubmit = async (e) => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   >
-                    <path d="M2 2h4l2 5-2.5 1.5a11 11 0 005 5L12 11l5 2v4a1 1 0 01-1 1C6 18 0 12 0 3a1 1 0 011-1h1z" />
-                  </svg>
-                </div>
-                <div className="cp-contact-text">
-                  <span className="cp-contact-label">Phone</span>
-                  <span className="cp-contact-value">+1 (646) 204-4191</span>
-                </div>
-              </div>
-
-              <div className="cp-contact-item">
-                <div className="cp-contact-icon">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    stroke="#E85C1A"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
                     <path d="M9 1C6.24 1 4 3.24 4 6c0 4 5 11 5 11s5-7 5-11c0-2.76-2.24-5-5-5z" />
                     <circle cx="9" cy="6" r="2" />
                   </svg>

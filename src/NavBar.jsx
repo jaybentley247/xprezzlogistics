@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Menu, X } from "lucide-react";
+import { Mail, MapPin, Menu, X } from "lucide-react";
 
 const navStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
@@ -184,9 +184,6 @@ export default function NavBar() {
       <div className={`ss-overlay ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(false)} />
       <div className="ss-top-bar">
         <div className="ss-top-info">
-          <div className="ss-top-item">
-            <Phone size={13} /> +1 (646) 204-4191
-          </div>
           <div className="ss-top-item">
             <Mail size={13} /> info@xprezzlogistics.com
           </div>
