@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 import { ADMIN_AUTH_KEY } from "./adminConfig";
 import { API_BASE } from "./api";
 
@@ -19,6 +20,10 @@ const styles = `
   .ad-input { width: 100%; padding: 11px 14px; border: 1.5px solid #2a2a2a; border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: #f5f5f5; background: #1c1c1c; outline: none; transition: border-color 0.2s; }
   .ad-input:focus { border-color: #2563EB; }
   .ad-label { display: block; text-align: left; font-size: 13px; font-weight: 600; color: #b3b9c4; margin-bottom: 8px; }
+  .ad-password-wrap { position: relative; }
+  .ad-password-wrap .ad-input { padding-right: 44px; }
+  .ad-password-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: none; border: none; border-radius: 6px; color: #8a8f98; cursor: pointer; transition: color 0.2s; }
+  .ad-password-toggle:hover { color: #f5f5f5; }
   .ad-login-form { display: flex; flex-direction: column; gap: 14px; }
   @media (max-width: 500px) { .ad-login-card { padding: 32px 24px; } }
 `;
@@ -26,6 +31,7 @@ const styles = `
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -86,13 +92,24 @@ export default function AdminLogin() {
             </div>
             <div>
               <label className="ad-label">Password</label>
-              <input
-                className="ad-input"
-                type="password"
-                placeholder="Enter admin password"
-                value={password}
-                onChange={(e) => { setPassword(e.target.value); setError(false); }}
-              />
+              <div className="ad-password-wrap">
+                <input
+                  className="ad-input"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter admin password"
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); setError(false); }}
+                />
+                <button
+                  type="button"
+                  className="ad-password-toggle"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  title={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
             </div>
             <button type="submit" className="ad-login-btn" disabled={loading}>
               {loading ? "Logging in..." : "Login"}
