@@ -192,7 +192,7 @@ export default function NavBar() {
           </div>
         </div>
         <div className="ss-top-item ss-hide-mobile">
-          <MapPin size={13} /> 123 Logistics Way, New York, NY 10001
+          <MapPin size={13} /> 56039 Nehalem Hwy S, Vernonia, OR 97064
         </div>
       </div>
       <nav className="ss-nav">

@@ -464,7 +464,7 @@ const handleSubmit = async (e) => {
                 <div className="cp-contact-text">
                   <span className="cp-contact-label">Address</span>
                   <span className="cp-contact-value">
-                    123 Logistics Way, New York, NY 10001
+                    56039 Nehalem Hwy S, Vernonia, OR 97064
                   </span>
                 </div>
               </div>

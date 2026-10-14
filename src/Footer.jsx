@@ -271,9 +271,9 @@ export default function Footer() {
               <div className="ss-footer-contact-item">
                 <span className="ss-footer-contact-icon">📍</span>
                 <span>
-                  123 Logistics Way, New York, NY 10001
+                  56039 Nehalem Hwy S
                   <br />
-                  New York, NY 10001
+                  Vernonia, OR 97064
                 </span>
               </div>
               <div className="ss-footer-contact-item">
